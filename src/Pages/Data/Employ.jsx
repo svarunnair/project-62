@@ -13,12 +13,14 @@ function Employ() {
   const [page,setPage]=useState(1)
   const [initial,setInitial]=useState(0)
   const [final,setFinal]=useState(4) 
+  const [render,setRender]=useState(false)
   const sliceData=search.slice(initial,final)
 
   
   
 useEffect(()=>{
   setSearch(mainData)
+  
 },[])
 
 
@@ -54,7 +56,8 @@ const handleSort=()=>{
   const handleDelete=(id)=>{
     dispatch(deleteData(id))
     alert("Data Deleted")
-    window.location.reload()
+    setRender(true)
+    
   }
   const handleSearch=(e)=>{
     let value = e.target.value 
@@ -62,11 +65,11 @@ const handleSort=()=>{
     setSearch(filterData)
   }
 
-  
 
   useEffect(()=>{
     dispatch(getData())
-  },[])
+    setRender(false)
+  },[render])
 
   useEffect(()=>{
     setSearch(mainData)
@@ -138,7 +141,7 @@ const handleSort=()=>{
 
       </thead>
       <tbody>
-        {sliceData.map((item,index)=>(
+        {sliceData?.map((item,index)=>(
           <tr style={{border:"2px solid grey"}}>
             <td style={{border:"2px solid grey"}}>
               {item._id}

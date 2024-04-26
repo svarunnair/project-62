@@ -104,7 +104,10 @@ export const postAuth=(data)=>(dispatch)=>{
     })
     .then((res)=>{
         dispatch(postAuthSuccess(res.data))
-        console.log("res.data.post",res.data)
+        if(res.data.token){
+            console.log("res.data.....",res.data.token)
+            localStorage.setItem("token",res.data.token)
+        }
     })
     .catch((err)=>{
         dispatch(postAuthFailure(err))

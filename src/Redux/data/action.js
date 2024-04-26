@@ -115,6 +115,7 @@ export const postData=(data)=>(dispatch)=>{
         url:"http://localhost:1200/data",
         method:"POST",
         data
+       
     })
     .then((res)=>{
         dispatch(postDataSuccess(res.data))

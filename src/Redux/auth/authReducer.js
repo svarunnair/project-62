@@ -4,7 +4,7 @@ const initState={
     isLoading:false,
     isError:false,
     getAuth:[],
-    postAuth:[],
+    postAuth:{},
     postSignup:[]
 }
 

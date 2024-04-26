@@ -14,7 +14,8 @@ function Home() {
 
     const handleLogout=()=>{
         localStorage.clear()
-        navigate('/login')
+        window.location.reload()
+        navigate('/')
     }
   return (
     <div >

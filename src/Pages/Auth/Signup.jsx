@@ -20,6 +20,10 @@ function Signup() {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setIsValidEmail(emailPattern.test(value));
   }
+  const handleLog=()=>{
+    navigate('/')
+      window.location.reload()
+  }
   const handlePassword=(e)=>{
     let value=e.target.value 
     setPassword(value)
@@ -40,13 +44,14 @@ function Signup() {
     }
     dispatch(postSignup(data))
       alert("Login Successfull")
-      navigate('/login')
+      navigate('/')
+        window.location.reload()
     }
   }
 
   return (
     <div >
-    <div >
+    <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
         <h1>Signup</h1>
         <hr ></hr>
         <div >
@@ -62,7 +67,10 @@ function Signup() {
             <label  form='password'>Password</label>
             <input style={{border:"1px solid grey",borderRadius:20,padding:10}} onChange={handlePassword} placeholder='Password...' />
         </div>
-        <button className='btn' onClick={handleSubmit} type='submit'  >Login</button>
+        <div style={{display:"flex",flexDirection:"column",width:200,padding:20,gap:20}}>
+        <button className='btn' onClick={handleSubmit} type='submit'  >Signup</button>
+        <button onClick={handleLog}>Already have an account. login</button>
+        </div>
 
     </div>
     </div>
