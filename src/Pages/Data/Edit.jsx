@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import DesigDrop from '../../Component/DesigDrop';
-import CourseDrop from '../../Component/CourserDrop';
-import GenderDrop from '../../Component/GenderDrop';
-import GenderRadioButtons from '../../Component/GenderDrop';
 import CheckboxOptions from '../../Component/CourserDrop';
 import RadioButtonOptions from '../../Component/GenderDrop';
 import DropdownOptions from '../../Component/DesigDrop';
@@ -11,8 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getData, patchData } from '../../Redux/data/action';
 
 function Create() {
-    const localData = JSON.parse(localStorage.getItem('data'))||[];
-      
+    
+ 
     const[name,setName]=useState([])
     const[email,setEmail]=useState([])
     const[mobile,setMobile]=useState([])

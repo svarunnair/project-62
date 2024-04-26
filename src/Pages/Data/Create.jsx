@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import DesigDrop from '../../Component/DesigDrop';
-import CourseDrop from '../../Component/CourserDrop';
-import GenderDrop from '../../Component/GenderDrop';
-import GenderRadioButtons from '../../Component/GenderDrop';
 import CheckboxOptions from '../../Component/CourserDrop';
 import RadioButtonOptions from '../../Component/GenderDrop';
 import DropdownOptions from '../../Component/DesigDrop';
@@ -11,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getData, postData } from '../../Redux/data/action';
 
 function Create() {
-    const localData = JSON.parse(localStorage.getItem('data'))||[];
       
     const[name,setName]=useState([])
     const[email,setEmail]=useState("")
@@ -25,21 +20,17 @@ function Create() {
     const dispatch=useDispatch()
     const mainData=useSelector((store)=>store.data.dataGet)
 
-    console.log("mainDataa",mainData)
 
   const handleSelectedOptionsChange = (newOptions) => {
     setOptions(newOptions);
   };
 
-  console.log("...options",options)
-
- 
-
+  
   const handleOptionChange = (option) => {
     setSelectedOption(option);
   };
 
-  console.log("gender...",selectedOption)
+
 
   useEffect(()=>{
     dispatch(getData())
@@ -48,13 +39,12 @@ function Create() {
   const isEmail=mainData.map((item)=>{
     return item.email
   })
-  console.log("isEmail",isEmail)
 
 
   const handleOptionChangeDesi = (designation) => {
     setDesignation(designation);
   };
-  console.log("Desi......",designation)
+
 
      const handleFileUpload = (event) => {
     const file = event.target.files[0];
@@ -62,18 +52,14 @@ function Create() {
   
     if (file) {
       const reader = new FileReader();
-
-      
+   
       reader.onload = () => {
         const imageDataUrl = reader.result;
         setImageData(imageDataUrl);
       };
-
-  
       reader.readAsDataURL(file);
     }
   };
-
 
   const generateUniqueId = () => {
     return '_' + Math.random().toString(36).substr(2, 9);
@@ -101,8 +87,7 @@ function Create() {
     setIsValidEmail(emailPattern.test(value));
     }
 
-   
- 
+  
     const handleMobile=(e)=>{
               let value=e.target.value 
         setMobile(value)
@@ -112,9 +97,9 @@ function Create() {
       navigate(-1)
     }
   
-    const updatedDate = new Date();
+const updatedDate = new Date();
 const dateOnly = updatedDate.toLocaleDateString();
-console.log("Date Only:", dateOnly);
+
 
     const handleSubmit=()=>{
       if(!name||!email){
@@ -142,7 +127,6 @@ console.log("Date Only:", dateOnly);
         
       }
 
-      console.log("dataaa",data)
       dispatch(postData(data))
    
       alert("Data added")

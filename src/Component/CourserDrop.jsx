@@ -11,7 +11,6 @@ const CheckboxOptions = ({ selectedOptions, onSelectedOptionsChange }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-      {/* MCA Checkbox */}
       <div>
         <input
           type="checkbox"
@@ -22,7 +21,7 @@ const CheckboxOptions = ({ selectedOptions, onSelectedOptionsChange }) => {
         <label>MCA</label>
       </div>
 
-      {/* BSC Checkbox */}
+ 
       <div>
         <input
           type="checkbox"
@@ -33,7 +32,7 @@ const CheckboxOptions = ({ selectedOptions, onSelectedOptionsChange }) => {
         <label>BSC</label>
       </div>
 
-      {/* Btech Checkbox */}
+ 
       <div>
         <input
           type="checkbox"

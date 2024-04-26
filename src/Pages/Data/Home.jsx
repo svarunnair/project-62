@@ -3,11 +3,9 @@ import { useNavigate } from 'react-router-dom'
 
 function Home() {
     const navigate=useNavigate()
-
     const token=localStorage.getItem("email")
 
-    console.log("emailToken",token)
-
+    
     const handleEmploy=()=>{
         navigate('/employ')
     }

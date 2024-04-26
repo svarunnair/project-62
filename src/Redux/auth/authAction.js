@@ -68,7 +68,7 @@ const postAuthFailure=()=>{
 export const getAuth=()=>(dispatch)=>{
     dispatch(getAuthRequest())
     return axios({
-        url:"http://localhost:1200/user",
+        url:"https://backentapi61.onrender.com/user",
         method:"GET"
     })
     .then((res)=>{
@@ -83,7 +83,7 @@ export const getAuth=()=>(dispatch)=>{
 export const postSignup=()=>(dispatch)=>{
     dispatch(postSignupRequest())
     return axios({
-        url:"http://localhost:1200/user",
+        url:"https://backentapi61.onrender.com/user",
         method:"GET"
     })
     .then((res)=>{
@@ -98,7 +98,7 @@ export const postSignup=()=>(dispatch)=>{
 export const postAuth=(data)=>(dispatch)=>{
     dispatch(postAuthRequest())
     return axios({
-        url:"http://localhost:1200/user/login",
+        url:"https://backentapi61.onrender.com/user/login",
         method:"POST",
         data
     })

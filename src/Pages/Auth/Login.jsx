@@ -6,16 +6,10 @@ import { postAuth } from '../../Redux/auth/authAction'
 function Login() {
 
   const [email,setEmail]=useState("")
-   const [isValidemail,setIsValidEmail]=useState("")
-   const success = useSelector((store)=>store.auth.postAuth)
+  const success = useSelector((store)=>store.auth.postAuth)
   const [password,setPassword]=useState("")
   const navigate=useNavigate()
   const dispatch=useDispatch()
-
-  // const token=localStorage.getItem("token")
-  const token=localStorage.getItem('token')
-
-  console.log("tokenLL",token)
 
   const handleEmail=(e)=>{
     let value=e.target.value 
@@ -46,12 +40,13 @@ function Login() {
 
   useEffect(()=>{
 if(Object.keys(success).length>0){
+  alert("Login Successfull")
  window.location.reload()
     navigate('/')
 }
   },[success])
 
-console.log("success",success)
+
 
   return (
     <div >

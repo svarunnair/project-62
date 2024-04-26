@@ -12,8 +12,6 @@ function Signup() {
   const navigate=useNavigate()
   const dispatch=useDispatch()
 
-  // const token=localStorage.getItem("token")
-
   const handleEmail=(e)=>{
     let value=e.target.value 
     setEmail(value)

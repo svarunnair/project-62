@@ -15,19 +15,13 @@ function Employ() {
   const [final,setFinal]=useState(4) 
   const [render,setRender]=useState(false)
   const sliceData=search.slice(initial,final)
-
-  
+  const dataLength = mainData.length;
   
 useEffect(()=>{
   setSearch(mainData)
   
 },[])
 
-
-console.log("serach",search)
-
-  
-const dataLength = mainData.length;
 
 const handleSortId=()=>{
  let sortId=mainData.sort((a,b)=>{
@@ -36,7 +30,7 @@ const handleSortId=()=>{
       setSearch([...sortId])
 }
 const handledash=()=>{
-  navigate('/home')
+  navigate('/')
 }
 
 const handleSort=()=>{
@@ -75,13 +69,7 @@ const handleSort=()=>{
     setSearch(mainData)
   },[mainData])
 
-  //   useEffect(()=>{
-  //   setSort(mainData)
-  // },[mainData])
-  const initialIndex=initial
-  const finalIndex=final
 
-  
   const handlePre=()=>{
     if(initial===0&&final===4){
       setInitial(0)
@@ -104,10 +92,6 @@ const handleSort=()=>{
     }
     
   }
-  console.log(">>>>",initial,final)
-  console.log("mat",dataLength)
-  const set=Math.ceil((dataLength-1)/4)
-  console.log("set....",set)
       
   return (
     <div style={{marginBottom:50,padding:50,display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
