@@ -26,7 +26,7 @@ function Home() {
         </div>
 
         <div style={{marginTop:100,display:"flex",flexDirection:"column"}}>
-         <text style={{fontSize:20,fontWeight:600}}>Welcom </text>
+         <text style={{fontSize:20,fontWeight:600}}>Welcome</text>
             <text style={{fontSize:20,fontWeight:600}}> {token}</text>
         </div>
  

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { postAuth } from '../../Redux/auth/authAction'
+import { postAuth, postSignup } from '../../Redux/auth/authAction'
 
-function Login() {
+function Signup() {
 
   const [email,setEmail]=useState("")
+  const [user,setUser]=useState('')
    const [isValidemail,setIsValidEmail]=useState("")
   const [password,setPassword]=useState("")
   const navigate=useNavigate()
@@ -16,13 +17,16 @@ function Login() {
   const handleEmail=(e)=>{
     let value=e.target.value 
     setEmail(value)
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsValidEmail(emailPattern.test(value));
   }
   const handlePassword=(e)=>{
     let value=e.target.value 
     setPassword(value)
   }
-  const handleSignup=()=>{
-    navigate('/signup')
+  const handleUser=(e)=>{
+    let value=e.target.value
+    setUser(value)
   }
   const handleSubmit=()=>{
     if(email===""||password===""){
@@ -30,39 +34,39 @@ function Login() {
     }
     else{
      let data={
+      userName:user,
       email:email,
       password:password
     }
-    dispatch(postAuth(data))
-    localStorage.setItem("email",email)
+    dispatch(postSignup(data))
       alert("Login Successfull")
-      navigate('/home')
+      navigate('/login')
     }
   }
 
   return (
     <div >
     <div >
-        <h1>Login</h1>
+        <h1>Signup</h1>
         <hr ></hr>
-        <div   >
-            <label  form='username'>UserName</label>
-            <input style={{border:"1px solid grey",borderRadius:20,padding:10}} onChange={handleEmail} placeholder='User name...'/>
-   
+        <div >
+        <div style={{marginBottom:10}}>
+        <label>User Name</label>
+        <input placeholder='User name...' onChange={handleUser} style={{border:"1px solid grey",borderRadius:20,padding:10}}/>
+        </div>
+            <label  form='email'>Email Id</label>
+            <input style={{border:"1px solid grey",borderRadius:20,padding:10}} onChange={handleEmail} placeholder='Email Id...'/>
+        {!isValidemail && <p>{email&&<p>Please enter a valid email address</p>}</p>}
         </div>
         <div >
             <label  form='password'>Password</label>
             <input style={{border:"1px solid grey",borderRadius:20,padding:10}} onChange={handlePassword} placeholder='Password...' />
         </div>
-        
         <button className='btn' onClick={handleSubmit} type='submit'  >Login</button>
-        <div>
-<button onClick={handleSignup}>Go back to Signup</button>
-        </div>
 
     </div>
     </div>
   )
 }
 
-export default Login
+export default Signup

@@ -17,9 +17,6 @@ function Create() {
     const[email,setEmail]=useState("")
     const[mobile,setMobile]=useState([])
     const [imageData, setImageData] = useState(null);
-    const [desig,setDesig]=useState([])
-    const [gender,setGender]=useState("")
-    const [course,setCourse]=useState([])
     const navigate=useNavigate()
     const [options, setOptions] = useState([]);
     const [selectedOption, setSelectedOption] = useState('');
@@ -104,33 +101,17 @@ function Create() {
     setIsValidEmail(emailPattern.test(value));
     }
 
-    const handleCourse=(e)=>{
-  
-        setCourse(e)
-
-    }
    
  
     const handleMobile=(e)=>{
               let value=e.target.value 
         setMobile(value)
     }
-    // const handleDesignation=(e)=>{
-    //           let value=e.target.value 
-    //     setDesignation(value)
-    // }
+ 
     const handleBack=()=>{
       navigate(-1)
     }
-    const handleDesi=(e)=>{
-
-        setDesig(e)
-    }
-    const handleGenderChange = (event) => {
-    setGender(event.target.value);
-  };
-    
-
+  
     const updatedDate = new Date();
 const dateOnly = updatedDate.toLocaleDateString();
 console.log("Date Only:", dateOnly);
@@ -213,7 +194,7 @@ console.log("Date Only:", dateOnly);
 
       
 
- <input type="file" accept="image/*" onChange={handleFileUpload} />
+ <input type="file" accept="image/png" onChange={handleFileUpload} />
       {imageData && (
         <div>
           <img src={imageData} alt="Uploaded" style={{ maxWidth: '100%', maxHeight: '200px', marginTop: '10px' }} />

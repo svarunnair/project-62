@@ -8,6 +8,10 @@ export const POST_AUTH_REQUEST="POST_AUTH_REQUEST"
 export const POST_AUTH_SUCCESS="POST_AUTH_SUCCESS"
 export const POST_AUTH_FAILURE="POST_AUTH_SUCCESS"
 
+export const POST_SIGNUP_REQUEST="POST_SIGNUP_REQUEST"
+export const POST_SIGNUP_SUCCESS="POST_SIGNUP_SUCCESS"
+export const POST_SIGNUP_FAILURE="POST_SIGNUP_SUCCESS"
+
 
 const getAuthRequest=()=>{
     return({
@@ -23,6 +27,23 @@ const getAuthSuccess=(data)=>{
 const getAuthFailure=()=>{
     return({
         type:GET_AUTH_FAILURE
+    })
+}
+
+const postSignupRequest=()=>{
+    return({
+        type:POST_SIGNUP_REQUEST
+    })
+}
+const postSignupSuccess=(data)=>{
+    return({
+        type:POST_SIGNUP_SUCCESS,
+        payload:data
+    })
+}
+const postSignupFailure=()=>{
+    return({
+        type:POST_SIGNUP_FAILURE
     })
 }
 
@@ -59,10 +80,25 @@ export const getAuth=()=>(dispatch)=>{
     })
 }
 
+export const postSignup=()=>(dispatch)=>{
+    dispatch(postSignupRequest())
+    return axios({
+        url:"http://localhost:1200/user",
+        method:"GET"
+    })
+    .then((res)=>{
+        dispatch(postSignupSuccess(res.data))
+        console.log("res.data.",res.data)
+    })
+    .catch((err)=>{
+        dispatch(postSignupFailure(err))
+    })
+}
+
 export const postAuth=(data)=>(dispatch)=>{
     dispatch(postAuthRequest())
     return axios({
-        url:"http://localhost:1200/user",
+        url:"http://localhost:1200/user/login",
         method:"POST",
         data
     })

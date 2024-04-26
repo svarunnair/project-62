@@ -93,14 +93,8 @@ function Create() {
     const handleBack=()=>{
       navigate(-1)
     }
-    const handleDesi=(e)=>{
-
-        setDesig(e)
-    }
-    const handleGenderChange = (event) => {
-    setGender(event.target.value);
-  };
     
+ 
 
    const updatedDate = new Date();
 const dateOnly = updatedDate.toLocaleDateString();
@@ -131,7 +125,7 @@ console.log("Date Only:", dateOnly);
       }
       dispatch(patchData(paramsId,data))
    
-      alert("Data added")
+      alert("Data edited successfully")
       navigate(-1)
       }
       
@@ -180,7 +174,7 @@ console.log("Date Only:", dateOnly);
 
       
 
- <input type="file" accept="image/*" onChange={handleFileUpload} />
+ <input type="file" accept="image/png" onChange={handleFileUpload} />
       {imageData && (
         <div>
           <img src={imageData} alt="Uploaded" style={{ maxWidth: '100%', maxHeight: '200px', marginTop: '10px' }} />
