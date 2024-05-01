@@ -62,6 +62,8 @@ const handleSort=()=>{
   }
 
 
+
+
   useEffect(()=>{
     dispatch(getData())
     setRender(false)
@@ -99,7 +101,7 @@ const handleSort=()=>{
 
     <>
 
-    {loading?<RefreshIcon/>:<div style={{marginBottom:50,padding:50,display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+    {loading?<img style={{width:"30%"}} src='https://media.giphy.com/media/hLDrVeX6QbTGXXcrAv/giphy.gif'/>:<div style={{marginBottom:50,padding:50,display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
   
   <div style={{display:"flex",gap:80}}>
   <button onClick={handledash}>Dashboard</button>
