@@ -122,13 +122,14 @@ const dateOnly = updatedDate.toLocaleDateString();
             update:dateOnly,
             designation:designation,
             gender:selectedOption,
-            image:imageData,
             course: options,
+            detail:[{
+
+            }],
         
       }
 
-      dispatch(postData(data))
-   
+      dispatch(postData(data))  
       alert("Data added")
       navigate(-1)
       }

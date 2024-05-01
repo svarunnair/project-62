@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { deleteData, getData } from '../../Redux/data/action'
+import RefreshIcon from '@mui/icons-material/Refresh';
 
 
 function Employ() {
@@ -9,6 +10,7 @@ function Employ() {
   const navigate=useNavigate()
   const dispatch=useDispatch()
   const mainData=useSelector((store)=>store.data.dataGet)
+  const loading=useSelector((store)=>store.data.isLoading)
   const [search,setSearch]=useState([])
   const [page,setPage]=useState(1)
   const [initial,setInitial]=useState(0)
@@ -94,7 +96,11 @@ const handleSort=()=>{
   }
       
   return (
-    <div style={{marginBottom:50,padding:50,display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+
+    <>
+
+    {loading?<RefreshIcon/>:<div style={{marginBottom:50,padding:50,display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+  
   <div style={{display:"flex",gap:80}}>
   <button onClick={handledash}>Dashboard</button>
    <button onClick={handleCreate}>Create new data</button>         
@@ -173,7 +179,9 @@ const handleSort=()=>{
 <text>{page}</text>
 <button onClick={handleNext}>next</button>
 </div>
-    </div>
+    </div>}
+
+    </>
   )
 }
 
