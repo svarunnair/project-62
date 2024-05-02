@@ -19,6 +19,9 @@ function Create() {
     const [isValidemail,setIsValidEmail]=useState('')
     const dispatch=useDispatch()
     const mainData=useSelector((store)=>store.data.dataGet)
+    const [detailName,setDetailName]=useState('')
+    const [number,setNumber]=useState('')
+    const [address,setAddress]=useState('')
 
 
   const handleSelectedOptionsChange = (newOptions) => {
@@ -86,6 +89,18 @@ function Create() {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setIsValidEmail(emailPattern.test(value));
     }
+    const handleDetailName=(e)=>{
+      let value=e.target.value
+      setDetailName(value)
+    }
+    const handleDetailNum=(e)=>{
+       let value=e.target.value
+      setNumber(value)
+    }
+    const handleDetailAddress=(e)=>{
+       let value=e.target.value
+      setAddress(value)
+    }
 
   
     const handleMobile=(e)=>{
@@ -124,7 +139,9 @@ const dateOnly = updatedDate.toLocaleDateString();
             gender:selectedOption,
             course: options,
             detail:[{
-
+              detailname:detailName,
+              number:number,
+              address:address
             }],
         
       }
@@ -176,6 +193,12 @@ const dateOnly = updatedDate.toLocaleDateString();
         selectedOption={designation}
         onOptionChange={handleOptionChangeDesi}
       />
+
+<input onChange={handleDetailName} placeholder='DetailName...'/>
+<input onChange={handleDetailNum} placeholder='DetailNum...'/>
+<input onChange={handleDetailAddress} placeholder='Address...'/>
+<hr></hr>
+<input onChange={handleDetailAddress} placeholder='Address...'/>
 
       
 

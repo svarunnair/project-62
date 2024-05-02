@@ -94,7 +94,7 @@ const deleteDataFailure=()=>{
 export const patchData=(id,data)=>(dispatch)=>{
     dispatch(patchDataRequest())
     return axios({
-        url:`https://backentapi61.onrender.com/data/${id}`,
+        url:`http://localhost:1200/data/${id}`,
         method:"PATCH",
         data
     })
@@ -112,7 +112,7 @@ export const patchData=(id,data)=>(dispatch)=>{
 export const postData=(data)=>(dispatch)=>{
     dispatch(postDataRequiest())
     return axios({
-        url:"https://backentapi61.onrender.com/data",
+        url:"http://localhost:1200/data/",
         method:"POST",
         data
        
@@ -131,7 +131,7 @@ export const postData=(data)=>(dispatch)=>{
 export const getData=()=>(dispatch)=>{
     dispatch(getDataRequest())
     return axios({
-        url:"https://backentapi61.onrender.com/data",
+        url:"http://localhost:1200/data/",
         method:"GET",
     })
     .then((res)=>{
@@ -147,7 +147,7 @@ export const getData=()=>(dispatch)=>{
 export const deleteData=(id)=>(dispatch)=>{
     dispatch(deleteDataRequest())
     return axios({
-        url:`https://backentapi61.onrender.com/data/${id}`,
+        url:`http://localhost:1200/data/${id}`,
         method:"DELETE",
     })
     .then((res)=>{
